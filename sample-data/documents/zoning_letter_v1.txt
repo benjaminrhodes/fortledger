@@ -1,0 +1,7 @@
+FORTLEDGER SYNTHETIC DEMO RECORD — NOT A REAL ZONING LETTER
+Document ID: DOC-ZONING-001
+Version: 1
+Category: Zoning
+Classification: Fictional LI-Light Industrial
+Permitted use: Flex warehouse and light assembly, synthetic example
+Parking note: Verify with the applicable authority before relying on this record.

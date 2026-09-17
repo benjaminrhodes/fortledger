@@ -1,0 +1,6 @@
+FORTLEDGER SYNTHETIC DEMO RECORD — NOT A REAL ENVIRONMENTAL REPORT
+Document ID: DOC-ENV-001
+Version: 1
+Category: Environmental
+Finding: No recognized environmental conditions in this fictional baseline.
+Recommendation: Human review required before approval.

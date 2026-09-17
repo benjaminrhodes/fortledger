@@ -1,0 +1,7 @@
+FORTLEDGER SYNTHETIC DEMO RECORD — NOT A REAL SURVEY
+Document ID: DOC-SURVEY-001
+Version: 1
+Category: Survey
+Acreage: 0.56 fictional acres
+Building footprint: 6,280 fictional square feet
+Access: Fictional Rosedale Street frontage

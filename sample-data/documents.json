@@ -1,0 +1,74 @@
+[
+  {
+    "documentId": "DOC-TITLE-001",
+    "category": "title",
+    "version": "1",
+    "sourcePath": "sample-data/documents/title_commitment_v1.txt",
+    "sha256": "sha256:283c350e49baff555facc10cdadc9d7871b025e4295d3067d3dfec2462618303",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-SURVEY-001",
+    "category": "survey",
+    "version": "1",
+    "sourcePath": "sample-data/documents/alta_survey_v1.txt",
+    "sha256": "sha256:fe681b7d9c1256b2b93b99c9544ee17e27429cbb25b87b4a2a947527310a671c",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-ZONING-001",
+    "category": "zoning",
+    "version": "1",
+    "sourcePath": "sample-data/documents/zoning_letter_v1.txt",
+    "sha256": "sha256:b3e652036c47c979b12f0f2b217bd1bdff0e88118786c6d905337a719cf08de4",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-ENV-001-V1",
+    "category": "environmental",
+    "version": "1",
+    "sourcePath": "sample-data/documents/phase_i_esa_v1.txt",
+    "sha256": "sha256:483fe3aff4ce411b22e21ee379611016896556e61e852a663d9a2af783c9aa5d",
+    "current": false,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-ENV-001-V2",
+    "category": "environmental",
+    "version": "2",
+    "sourcePath": "sample-data/documents/phase_i_esa_v2.txt",
+    "sha256": "sha256:0b031d862f7b473a16a235e9b0ef9547a8637c6bb6af797c7bee5fd9f0916f93",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-LEASE-001",
+    "category": "lease",
+    "version": "1",
+    "sourcePath": "sample-data/documents/tenant_lease_v1.txt",
+    "sha256": "sha256:5d21c05980082bd8891684ef7239e0a6478014ef2a4d00119ae93b6f11f53c2a",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-RENT-001",
+    "category": "rent_roll",
+    "version": "1",
+    "sourcePath": "sample-data/documents/rent_roll_2026_09.txt",
+    "sha256": "sha256:98d2351c226de5078229f3331bf8822be530022d83e27b0abdc0fd53cacac5b2",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-OPEX-001",
+    "category": "operating_costs",
+    "version": "1",
+    "sourcePath": "sample-data/documents/operating_costs_2026_09.txt",
+    "sha256": "sha256:6abae021befd8054b462d20e4107ed76f6badefbb7e53321a05c883b78548efa",
+    "current": true,
+    "reviewStatus": "human_verified"
+  }
+]

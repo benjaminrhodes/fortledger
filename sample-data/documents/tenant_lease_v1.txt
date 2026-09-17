@@ -1,0 +1,8 @@
+FORTLEDGER SYNTHETIC DEMO RECORD — NOT A REAL LEASE
+Document ID: DOC-LEASE-001
+Version: 1
+Category: Lease
+Tenant alias: Tenant A (fictional)
+Leased area: 6,280 fictional square feet
+Expiration: 2030-12-31
+Annual base rent: $94,200 fictional annualized rent

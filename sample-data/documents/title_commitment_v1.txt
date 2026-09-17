@@ -1,0 +1,8 @@
+FORTLEDGER SYNTHETIC DEMO RECORD — NOT A REAL TITLE COMMITMENT
+Document ID: DOC-TITLE-001
+Version: 1
+Category: Title
+Effective date: 2026-09-01
+Proposed insured: Rosedale Logistics Demo LLC
+Parcel ID: SYN-FW-0001
+Legal description: Fictional tract for demonstration only.

@@ -1,0 +1,9 @@
+FORTLEDGER SYNTHETIC DEMO RECORD — NOT A REAL OPERATING COST FILE
+Document ID: DOC-OPEX-001
+Version: 1
+Category: Operating costs
+Sheet: Annual Summary; Row: 2
+Taxes: $12,000 fictional
+Insurance: $4,800 fictional
+Utilities and repairs: $9,200 fictional
+Total operating costs: $26,000 fictional annualized costs
