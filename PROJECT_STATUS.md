@@ -11,6 +11,8 @@ Updated: 2026-09-16 (America/Chicago)
 - Seeded source model created: 8 synthetic document versions across all 7 required categories.
 - Deterministic SHA-256 hashing and canonical manifest generation implemented.
 - Reversible tamper demonstration implemented and exercised against the actual source file.
+- Architecture, data-model, security, token, timed-demo, eight-slide plan, and Devpost draft packaged in `docs/` and `deck/`.
+- Recording tools `ffmpeg` and `obs` are available, but no UI recording has been made yet.
 
 ## Exact verification evidence
 
@@ -30,6 +32,7 @@ Updated: 2026-09-16 (America/Chicago)
 - `npm run build` — passed checkpoint artifact check.
 - `node scripts/verify.mjs` — passed clean verification.
 - `node scripts/tamper-demo.mjs` — passed failed-and-restored demonstration.
+- `git push` — passed through commit `bbd7a30`; local branch clean and aligned with `origin/main`.
 
 ## Unresolved event questions
 
