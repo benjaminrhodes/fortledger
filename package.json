@@ -1,0 +1,15 @@
+{
+  "name": "fortledger",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Source-backed, blockchain-anchored property-record provenance demo",
+  "scripts": {
+    "seed": "node scripts/seed.mjs",
+    "manifest": "node scripts/manifest.mjs",
+    "test": "node --test",
+    "build": "node scripts/build-check.mjs",
+    "dev": "node scripts/dev-server.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
