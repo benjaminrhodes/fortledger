@@ -4,24 +4,25 @@
 FortLedger
 
 ## Elevator pitch
-FortLedger turns a fragmented industrial-property deal room into a source-backed, versioned digital record whose approved manifest can be cryptographically anchored and independently checked for tampering.
+FortLedger turns a fragmented industrial-property file set into a source-backed record whose approved manifest is anchored on a local chain and can be checked for tampering.
 
 ## Problem
-Property diligence facts are spread across title, survey, zoning, environmental, lease, rent-roll, and operating-cost records. Reviewers need to know not only the value, but exactly which version and source support it—and whether the record changed afterward.
+Property diligence facts are spread across title, survey, zoning, environmental, lease, rent-roll, and operating-cost records. Reviewers need the value, the exact version and source behind it, and a way to tell if the file changed afterward.
 
 ## What we built
-A seeded Fort Worth demonstration asset with seven record categories. Each material fact is designed to carry a source document, version, exact location, excerpt, review state, and SHA-256 checksum. The system generates a deterministic manifest, anchors its hash in a transfer-disabled Asset Record Token, recalculates hashes from actual source files, and identifies the changed document after a reversible tamper.
+A seeded Fort Worth demonstration asset with seven record categories, including an environmental v1 superseded by v2. Material facts and industrial-fit fields carry a source document, location, and excerpt, or they are marked `not_found` (floor load). Review status comes from a catalog. The app builds a deterministic manifest, mints a transfer-disabled asset-record token on a local Hardhat chain, reads that hash back, and names the changed document after a reversible tamper. `npm run dev` serves the operator page. `npm run bench` records verify latency and tamper detection. Next to that, it cites published typical ranges (Texas commercial diligence commonly 30–60 days, industrial often 60–90; Phase I about 2–3 weeks and viable for 180 days; ALTA/NSPS about 2–4 weeks; lease review about 3–4 analyst-hours). Those ranges were not measured here. A Phase I report date older than 180 days is flagged stale and does not change the hash result.
 
 ## Honest scope disclosure
-The first complete demo uses synthetic, watermarked documents and seeded source-backed extraction. It is not legal, title, investment, or securities infrastructure. The token represents only the integrity/version of a digital property-record manifest, never land title or economic rights. Live AI extraction is deferred until core tests and event rules justify it.
+The demo uses synthetic, watermarked documents and seeded values. It is not legal, title, investment, or securities infrastructure. The token represents only the integrity and version of a digital property-record manifest. Live AI extraction is not implemented. No partners are claimed.
 
 ## Technologies
-Next.js/TypeScript/Tailwind planned UI; Node SHA-256; local JSON; Solidity/Hardhat/OpenZeppelin planned token layer. AI-assisted development disclosure should be completed with the actual tools used before submission.
+Node.js, a dependency-free operator page, SHA-256 via `node:crypto`, local JSON, Solidity, Hardhat, and ethers. The record token is a small contract in this repo, not an OpenZeppelin import. AI-assisted development should be disclosed with the tools actually used before submission.
 
 ## Demo and links
-- Repository: private during preparation; visibility pending event requirements.
-- Demo video: pending human screen recording.
-- Screenshots: pending UI milestone.
+- Run: `npm install`, `npm test`, `npm run dev`, then http://127.0.0.1:4173
+- Demo video: not recorded yet. A person still needs to capture the screen for Devpost.
+- Track: HackFW MADE Challenge, Track 04 — Tokenized Industrial Real Estate.
+- Deadline: Friday, October 30, 2026, 11:00 AM CDT.
 
 ## Eligibility note
-The exact event URL, development-period rule, final deadline, video limit, and visibility requirements are unconfirmed. This draft must be adapted to the verified event page before submission.
+Repository history begins September 16, 2026, before the October 1–30, 2026 window. September produced the corpus and hashing CLI. The chain anchor, token, operator UI, citations, and benchmark were added in October. This draft still has to be checked against the event page before submission. Repository visibility was not changed here.

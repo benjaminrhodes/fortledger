@@ -5,3 +5,7 @@ Category: Survey
 Acreage: 0.56 fictional acres
 Building footprint: 6,280 fictional square feet
 Access: Fictional Rosedale Street frontage
+Power: 480V / 1,200A fictional service
+Clear height: 24 ft fictional
+Dock doors: 2 fictional dock-high doors
+Transport access: Fictional Rosedale Street frontage; 1.2 miles fictional distance to I-35W

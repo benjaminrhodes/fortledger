@@ -1,7 +1,9 @@
 # Token Model and Limitations
 
-The Asset Record Token is an ERC-721-style proof object for one digital record manifest version. Metadata fields: asset ID, record version, manifest URI, manifest hash, record type, transfer policy, and explicit `legal_title: false` / `investment_rights: false` flags.
+`contracts/AssetRecordToken.sol` is an ERC-721-style proof object for one digital record manifest. The chain stores asset id, record version, manifest URI, and manifest hash. `LEGAL_TITLE` and `INVESTMENT_RIGHTS` are constants set to false, and `getRecord` returns those flags plus `transferPolicy: "disabled"`.
 
-The demo contract will permit an authorized issuer to mint and will reject unauthorized minting and normal transfers. It will never claim to change a county land record, convey title, create equity, or grant debt/rent/investment rights. Private documents stay off-chain.
+The authorized issuer can mint. Any other account’s mint reverts with `UnauthorizedIssuer`. `transferFrom`, both `safeTransferFrom` overloads, `approve`, and `setApprovalForAll` revert with `TransfersDisabled`. The contract reports the ERC-721 and ERC-721 metadata interface ids, then refuses every transfer. It is a record token, not a transferable collectible, and it does not change a county land record or create equity, debt, rent, or investment rights.
 
-Limitations: synthetic data; local-chain-first; no legal authority; seeded extraction; no arbitrary OCR; no production access control; no live county, lease, tenant, accounting, or environmental integrations.
+`test-contracts/AssetRecordToken.cjs` covers authorized mint, rejected unauthorized mint, and rejected transfers.
+
+Limitations: synthetic data; local Hardhat only; no legal authority; seeded extraction; no arbitrary OCR; no production access control beyond the issuer check; no live county, lease, tenant, accounting, or environmental integrations. Hardhat’s default accounts are public demo keys. Do not fund them.

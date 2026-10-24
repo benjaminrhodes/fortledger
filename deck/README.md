@@ -9,4 +9,4 @@
 7. **Proof, including tamper** — Clean verification, changed environmental file identified, restored clean demo; status semantics.
 8. **Scale path and ask** — Human-reviewed integrations, controlled access, portfolio alerts; invite judges to inspect the proof.
 
-Speaker notes should disclose seeded extraction, synthetic source files, local-chain-first implementation, and any event-specific eligibility limitation.
+The running demo is `npm run dev` at http://127.0.0.1:4173. Speaker notes should disclose seeded extraction, synthetic source files, the local Hardhat anchor, and that repository history begins September 16, 2026, before the October 1–30 challenge window. Diligence ranges in the benchmark are published figures, not a FortLedger timing study.

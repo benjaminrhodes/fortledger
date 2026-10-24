@@ -6,4 +6,5 @@
 - Keep source documents off-chain and synthetic in the demo.
 - Fail closed on missing files, missing manifests, or unavailable chain access.
 - Keep wallet secrets out of Git; local Hardhat keys are disposable demo credentials.
-- Make tampering reversible by copying a source file to a temporary backup, changing one byte, verifying failure, and restoring in `finally`.
+- Make tampering reversible by copying a source file to a temporary backup, changing the synthetic demo file, verifying failure, and restoring in `finally`. The `finally` block also deletes the `*.clean-demo-backup` file.
+- Read the expected manifest hash from the local chain. If that read fails, return `unable_to_verify` instead of trusting a local JSON file.

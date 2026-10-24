@@ -4,5 +4,6 @@ Version: 1
 Category: Title
 Effective date: 2026-09-01
 Proposed insured: Rosedale Logistics Demo LLC
+Legal owner: Rosedale Logistics Demo LLC (fictional)
 Parcel ID: SYN-FW-0001
 Legal description: Fictional tract for demonstration only.

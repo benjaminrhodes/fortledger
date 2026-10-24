@@ -36,14 +36,14 @@
       "category": "survey",
       "version": "1",
       "sourcePath": "sample-data/documents/alta_survey_v1.txt",
-      "sha256": "sha256:fe681b7d9c1256b2b93b99c9544ee17e27429cbb25b87b4a2a947527310a671c"
+      "sha256": "sha256:0e90672238074cd3c9cf6386f84b2ae940b12df50a98c9e37913b55fb4bd4dbd"
     },
     {
       "documentId": "DOC-TITLE-001",
       "category": "title",
       "version": "1",
       "sourcePath": "sample-data/documents/title_commitment_v1.txt",
-      "sha256": "sha256:283c350e49baff555facc10cdadc9d7871b025e4295d3067d3dfec2462618303"
+      "sha256": "sha256:75edac2b7c40903c72281f1a5bcb572a910ac064dc9c35a3977daa72b2c8ee7e"
     },
     {
       "documentId": "DOC-ZONING-001",
@@ -53,5 +53,5 @@
       "sha256": "sha256:b3e652036c47c979b12f0f2b217bd1bdff0e88118786c6d905337a719cf08de4"
     }
   ],
-  "manifestHash": "sha256:25c8fee3310c95c9bd9870b4cee868abd8a2d35a463babe7363055a38cbed1b8"
+  "manifestHash": "sha256:e754149855d6ebe517da38d525d965b5c8bab84097c18bd9e4957c41128771d2"
 }
