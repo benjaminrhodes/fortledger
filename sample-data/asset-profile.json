@@ -1,7 +1,174 @@
 {
   "assetId": "FL-TX-FW-0001",
   "recordVersion": "1.0",
+  "asOf": "2026-10-24",
   "name": "Fort Worth Rosedale Logistics Center",
   "propertyType": "Industrial flex warehouse",
-  "dataStatus": "Synthetic hackathon demonstration data"
+  "locationLabel": "Fictional Rosedale corridor, Fort Worth, Texas",
+  "synthetic": true,
+  "dataStatus": "Synthetic hackathon demonstration data — not a real property",
+  "disclaimer": "Synthetic hackathon demonstration. Not legal, title, survey, environmental, investment, securities, or tax advice.",
+  "industrialFit": {
+    "power": {
+      "label": "Power",
+      "value": "480V / 1,200A fictional service",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-SURVEY-001",
+        "version": "1",
+        "location": "Field: Power",
+        "excerpt": "Power: 480V / 1,200A fictional service",
+        "sourcePath": "sample-data/documents/alta_survey_v1.txt"
+      }
+    },
+    "clearHeight": {
+      "label": "Clear height",
+      "value": "24 ft fictional",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-SURVEY-001",
+        "version": "1",
+        "location": "Field: Clear height",
+        "excerpt": "Clear height: 24 ft fictional",
+        "sourcePath": "sample-data/documents/alta_survey_v1.txt"
+      }
+    },
+    "docks": {
+      "label": "Dock doors",
+      "value": "2 fictional dock-high doors",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-SURVEY-001",
+        "version": "1",
+        "location": "Field: Dock doors",
+        "excerpt": "Dock doors: 2 fictional dock-high doors",
+        "sourcePath": "sample-data/documents/alta_survey_v1.txt"
+      }
+    },
+    "floorLoad": {
+      "label": "Floor load",
+      "value": null,
+      "status": "not_found",
+      "citation": null,
+      "note": "No floor-load figure is present in the synthetic source set."
+    },
+    "transportAccess": {
+      "label": "Transport access",
+      "value": "Fictional Rosedale Street frontage; 1.2 miles fictional distance to I-35W",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-SURVEY-001",
+        "version": "1",
+        "location": "Field: Transport access",
+        "excerpt": "Transport access: Fictional Rosedale Street frontage; 1.2 miles fictional distance to I-35W",
+        "sourcePath": "sample-data/documents/alta_survey_v1.txt"
+      }
+    }
+  },
+  "facts": [
+    {
+      "id": "legal-owner",
+      "label": "Legal owner",
+      "value": "Rosedale Logistics Demo LLC (fictional)",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-TITLE-001",
+        "version": "1",
+        "location": "Field: Legal owner",
+        "excerpt": "Legal owner: Rosedale Logistics Demo LLC (fictional)",
+        "sourcePath": "sample-data/documents/title_commitment_v1.txt"
+      }
+    },
+    {
+      "id": "zoning",
+      "label": "Zoning classification",
+      "value": "Fictional LI-Light Industrial",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-ZONING-001",
+        "version": "1",
+        "location": "Field: Classification",
+        "excerpt": "Classification: Fictional LI-Light Industrial",
+        "sourcePath": "sample-data/documents/zoning_letter_v1.txt"
+      }
+    },
+    {
+      "id": "environmental-v1",
+      "label": "Environmental finding (v1, superseded)",
+      "value": "No recognized environmental conditions in this fictional baseline.",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-ENV-001-V1",
+        "version": "1",
+        "location": "Field: Finding",
+        "excerpt": "Finding: No recognized environmental conditions in this fictional baseline.",
+        "sourcePath": "sample-data/documents/phase_i_esa_v1.txt"
+      }
+    },
+    {
+      "id": "environmental-v2",
+      "label": "Environmental finding (v2, current)",
+      "value": "Historical dry-cleaning use flagged for follow-up in this fictional update.",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-ENV-001-V2",
+        "version": "2",
+        "location": "Field: Finding",
+        "excerpt": "Finding: Historical dry-cleaning use flagged for follow-up in this fictional update.",
+        "sourcePath": "sample-data/documents/phase_i_esa_v2.txt"
+      }
+    },
+    {
+      "id": "tenant",
+      "label": "Tenant",
+      "value": "Tenant A (fictional)",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-LEASE-001",
+        "version": "1",
+        "location": "Field: Tenant alias",
+        "excerpt": "Tenant alias: Tenant A (fictional)",
+        "sourcePath": "sample-data/documents/tenant_lease_v1.txt"
+      }
+    },
+    {
+      "id": "base-rent",
+      "label": "Annual base rent",
+      "value": "$94,200 fictional annualized rent",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-LEASE-001",
+        "version": "1",
+        "location": "Field: Annual base rent",
+        "excerpt": "Annual base rent: $94,200 fictional annualized rent",
+        "sourcePath": "sample-data/documents/tenant_lease_v1.txt"
+      }
+    },
+    {
+      "id": "rent-roll",
+      "label": "Annual rent",
+      "value": "$94,200 fictional annualized rent",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-RENT-001",
+        "version": "1",
+        "location": "Sheet: Rent Roll; Row: 2",
+        "excerpt": "Annual rent: $94,200 fictional annualized rent",
+        "sourcePath": "sample-data/documents/rent_roll_2026_09.txt"
+      }
+    },
+    {
+      "id": "operating-costs",
+      "label": "Total operating costs",
+      "value": "$26,000 fictional annualized costs",
+      "status": "cited",
+      "citation": {
+        "documentId": "DOC-OPEX-001",
+        "version": "1",
+        "location": "Sheet: Annual Summary; Row: 2",
+        "excerpt": "Total operating costs: $26,000 fictional annualized costs",
+        "sourcePath": "sample-data/documents/operating_costs_2026_09.txt"
+      }
+    }
+  ]
 }

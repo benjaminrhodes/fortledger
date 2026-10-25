@@ -1,0 +1,68 @@
+[
+  {
+    "documentId": "DOC-TITLE-001",
+    "category": "title",
+    "version": "1",
+    "filename": "title_commitment_v1.txt",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-SURVEY-001",
+    "category": "survey",
+    "version": "1",
+    "filename": "alta_survey_v1.txt",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-ZONING-001",
+    "category": "zoning",
+    "version": "1",
+    "filename": "zoning_letter_v1.txt",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-ENV-001-V1",
+    "category": "environmental",
+    "version": "1",
+    "filename": "phase_i_esa_v1.txt",
+    "current": false,
+    "reviewStatus": "human_verified",
+    "reportDate": "2025-09-01"
+  },
+  {
+    "documentId": "DOC-ENV-001-V2",
+    "category": "environmental",
+    "version": "2",
+    "filename": "phase_i_esa_v2.txt",
+    "current": true,
+    "reviewStatus": "human_verified",
+    "reportDate": "2026-09-01"
+  },
+  {
+    "documentId": "DOC-LEASE-001",
+    "category": "lease",
+    "version": "1",
+    "filename": "tenant_lease_v1.txt",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-RENT-001",
+    "category": "rent_roll",
+    "version": "1",
+    "filename": "rent_roll_2026_09.txt",
+    "current": true,
+    "reviewStatus": "human_verified"
+  },
+  {
+    "documentId": "DOC-OPEX-001",
+    "category": "operating_costs",
+    "version": "1",
+    "filename": "operating_costs_2026_09.txt",
+    "current": true,
+    "reviewStatus": "human_verified"
+  }
+]

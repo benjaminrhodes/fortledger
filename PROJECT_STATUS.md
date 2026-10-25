@@ -1,46 +1,38 @@
 # FortLedger Project Status
 
-Updated: 2026-09-16 (America/Chicago)
+Updated: 2026-10-24
 
-## Completed milestones
+## What works
 
-- Workspace inspected; no existing FortLedger project or local Git repository found.
-- GitHub auth verified for `benjaminrhodes`; repository was absent before creation.
-- Private repository created and verified: https://github.com/benjaminrhodes/fortledger
-- Product scope and token semantics committed in the initial README.
-- Seeded source model created: 8 synthetic document versions across all 7 required categories.
-- Deterministic SHA-256 hashing and canonical manifest generation implemented.
-- Reversible tamper demonstration implemented and exercised against the actual source file.
-- Architecture, data-model, security, token, timed-demo, eight-slide plan, and Devpost draft packaged in `docs/` and `deck/`.
-- Recording tools `ffmpeg` and `obs` are available, but no UI recording has been made yet.
+- Seven synthetic Fort Worth record categories, with Phase I ESA v1 superseded by v2.
+- Review status is read from `sample-data/catalog.json`. Missing status fails the seed. `pending_review` stays out of the manifest.
+- Industrial-fit fields: power, clear height, dock doors, transport access, and floor load. Floor load is `not_found`. Cited values quote an exact line from a synthetic source file.
+- `contracts/AssetRecordToken.sol` on a local Hardhat chain. The issuer can mint. Other accounts cannot. Transfers and approvals revert. `legal_title` and `investment_rights` are false.
+- `npm run dev` starts the chain, anchors the manifest, and serves http://127.0.0.1:4173 with Verify, Tamper ESA v2, and Restore ESA v2.
+- `verify` reads the expected manifest hash from the chain. A closed RPC port or a missing approved file returns `unable_to_verify`. A changed source file returns `failed` and names the document. A newer intact manifest returns `outdated`.
+- The tamper demo restores the synthetic file and deletes `*.clean-demo-backup` in a `finally` block. That suffix is gitignored.
+- `npm run bench` writes `results/bench.json`. Latency and tamper rates are measured. The baseline quotes published typical ranges and leaves `manualDiligence` null.
+- Phase I report dates are checked against a 180-day viability window (ASTM E1527-21 §4.6). Stale is a separate flag. It does not change a hash match into Failed or Outdated.
 
-## Exact verification evidence
+## Evidence from this workspace (2026-10-24)
 
-- Clean verification: `verified`, manifest `sha256:25c8fee3310c95c9bd9870b4cee868abd8a2d35a463babe7363055a38cbed1b8`, 7 approved documents.
-- Tampered verification: `failed`; affected record `DOC-ENV-001-V2`, source `sample-data/documents/phase_i_esa_v2.txt`.
-- Tamper restore verification: `verified` with the same manifest hash.
-- Tamper expected hash: `sha256:0b031d862f7b473a16a235e9b0ef9547a8637c6bb6af797c7bee5fd9f0916f93`.
-- Tamper actual hash: `sha256:0d67abfb8851546cba4654bc118fc06a6854638c32db0de518d6292b48655d10`.
+- `npm test`: 21 Node tests passed, then Hardhat `AssetRecordToken` 3 passing (authorized mint, unauthorized mint, transfers). Phase I v1 (report date 2025-09-01) is stale against as-of 2026-10-24; v2 (2026-09-01) is inside 180 days. The hash status stays verified.
+- Approved manifest hash: `sha256:e754149855d6ebe517da38d525d965b5c8bab84097c18bd9e4957c41128771d2` (7 documents; ESA v1 excluded).
+- `npm run tamper-demo`: `verified`, then `failed` on `DOC-ENV-001-V2` (`source_hash_mismatch`), then `verified` again. Chain token `0x5FbDB2315678afecb367f032d93F642f64180aa3`, token id 1.
+- `results/bench.json` at `2026-10-24T22:43:04.630Z` (Node v22.23.4, linux x64, one run): verify mean 3.138 ms over 50 iterations after one warmup; tamper detection 20/20; correct document id 20/20. Baseline ranges are cited, not measured here: commercial diligence commonly 30–60 days (industrial often 60–90; Chambers Real Estate 2025 USA-Texas; Talley Law), Phase I turnaround about 2–3 weeks (Commercial Loans of Texas), Phase I viable 180 days (ASTM E1527-21 §4.6), ALTA/NSPS survey about 2–4 weeks (Midpoint Surveying), lease review about 3–4 analyst-hours per lease (RSM).
 
-## Commands and results
+Re-run the commands after a clone. Do not treat the latency number as a portable benchmark.
 
-- `gh auth status` — authenticated as `benjaminrhodes`, `repo` scope.
-- `gh repo view benjaminrhodes/fortledger --json ...` — private, default branch `main`.
-- `npm run seed` — passed; seeded 8 versions across 7 categories.
-- `npm run manifest` — passed; 7 documents included.
-- `npm test` — passed; 3 tests, 0 failures.
-- `npm run build` — passed checkpoint artifact check.
-- `node scripts/verify.mjs` — passed clean verification.
-- `node scripts/tamper-demo.mjs` — passed failed-and-restored demonstration.
-- `git push` — passed through commit `bbd7a30`; local branch clean and aligned with `origin/main`.
+## Competition
 
-## Unresolved event questions
+HackFW MADE Challenge, Track 04 — Tokenized Industrial Real Estate. Devpost deadline Friday, October 30, 2026, 11:00 AM CDT.
 
-1. What is the exact Devpost event URL/name?
-2. Is October 1, 2026 the submission-opening date, official build start, or another milestone?
-3. Is pre-event development allowed, and if so, what must be disclosed?
-4. What are the final video duration, repository visibility, AI disclosure, team-size, and screenshot requirements?
+Repository history begins September 16, 2026, before the October 1–30 window. September was the corpus and the hashing CLI. October added the anchor, token, UI, citations, status paths, and benchmark. Visibility of the GitHub repository was not changed in this update.
 
-## Next action
+## Still open
 
-Implement the application-facing seven-category data model and verification UI, then add the local token contract and its authorized/unauthorized behavior tests.
+- No live document extraction, OCR, or county integration.
+- No public-network deployment and no production access control.
+- No single manual-diligence duration was measured. The benchmark cites published ranges instead.
+- Devpost still needs a human screen recording. No video is stored in this repo.
+- One fictional asset. Hardhat state is ephemeral.
