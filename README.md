@@ -1,16 +1,22 @@
 # FortLedger
 
-**Verified Fort Worth industrial records, anchored on a local chain.**
+FortLedger cuts the waiting out of due diligence. Every document in the deal room is checked as current and untouched in milliseconds, not days.
+
+We turn the slowest part of a real estate deal, confirming the paperwork, into a one-click check.
 
 > Synthetic hackathon demonstration. Not legal, title, survey, environmental, investment, securities, or tax advice.
 
-FortLedger is a provenance demo for one fictional Fort Worth industrial property. Seven record categories become a versioned asset record. Each displayed fact cites a source document, a location, and an excerpt, or it is marked `not_found`. A transfer-disabled asset-record token on a local Hardhat chain stores the asset id, record version, and manifest hash. Verification reads that hash from the chain and hashes the files on disk.
+That speed is a check of the data room you already have. In this demo, verifying the whole room takes a few milliseconds. What it removes is the manual “which version is current” re-check before closing or lender sign-off. The reports themselves are not written any faster. This repository does not claim an hours-saved number. A pilot will measure that.
 
-**HackFW MADE Challenge — Track 04, Tokenized Industrial Real Estate.** Devpost deadline: Friday, October 30, 2026, 11:00 AM CDT.
+You can trust the speed because each approved file is fingerprinted and the manifest hash is anchored on a local chain. **Verified** means the file is unchanged since it was recorded. It is not proof the file is true.
+
+FortLedger demonstrates that check on one fictional Fort Worth industrial property. Seven record categories become a versioned asset record. Each displayed fact cites a source document, a location, and an excerpt, or it is marked `not_found`. A transfer-disabled asset-record token on a local Hardhat chain stores the asset id, record version, and manifest hash. Verification reads that hash from the chain and hashes the files on disk.
+
+**HackFW MADE Challenge — Track 04, Tokenized Industrial Real Estate.** Devpost deadline: Friday, October 30, 2026, 11:00 AM CDT. Demo Day is the same day, 9:30 AM–3:00 PM CDT.
 
 ## Setup
 
-Node.js 20 or newer. No API keys. The first `npm test` downloads the Solidity 0.8.24 compiler.
+Node.js 20 or newer. No API keys. The first `npm test` downloads the Solidity 0.8.24 compiler, so that command needs a network. After `npm ci` and that first test, `npm run dev` works offline. `npm ci` is the clean install for a presenting laptop.
 
 ```bash
 npm install
@@ -18,9 +24,9 @@ npm test
 npm run dev
 ```
 
-Open http://127.0.0.1:4173
+Open http://127.0.0.1:4173. Hardhat listens on http://127.0.0.1:8545. If port 4173 is busy, stop the other server or run `PORT=4174 npm run dev` and open the URL the log prints.
 
-`npm run dev` compiles the contract, starts a local Hardhat node, anchors the current manifest, and serves the operator page. The page checks the record on load. Use **Verify**, **Tamper ESA v2**, and **Restore ESA v2** to show a clean record, a failed record that names `DOC-ENV-001-V2`, and recovery. Source bytes stay on this machine. The chain stores the commitment only.
+`npm run dev` compiles the contract, starts a local Hardhat node, anchors the current manifest, and serves the operator page. The page checks the record on load. Use **Verify**, **Tamper ESA v2**, and **Restore ESA v2** to show a clean record, a failed record that names `DOC-ENV-001-V2` (`source_hash_mismatch`), and recovery. The tamper button appends a line to `sample-data/documents/phase_i_esa_v2.txt` and keeps a `.clean-demo-backup` beside it until restore. Source bytes stay on this machine. The chain stores the commitment only. The live outline is [docs/demo-script.md](docs/demo-script.md).
 
 Other commands, from the repository root:
 
@@ -54,7 +60,7 @@ Industrial fit fields are power, clear height, dock doors, floor load, and trans
 
 ## Verification
 
-- **Verified** — the chain hash, the current approved manifest, and every approved source file match.
+- **Verified** — the chain hash, the current approved manifest, and every approved source file match. Verified means unchanged since recorded, not proof the file is true.
 - **Outdated** — a newer approved manifest supersedes the chain, and the anchored manifest's files still match the hashes that were committed.
 - **Failed** — a manifest or source-file hash does not match. The result names the document.
 - **Unable to verify** — the chain, the anchored manifest, or a required source file is unavailable. Missing data is never Verified.
@@ -65,17 +71,17 @@ To see **Outdated** without restarting the server, bump `recordVersion` in `samp
 
 ## Benchmark
 
-`npm run bench` measures verify latency, tamper detection, and whether the failure names `DOC-ENV-001-V2`. It writes `results/bench.json`. That latency is one run on one machine.
+`npm run bench` measures verify latency, tamper detection, and whether the failure names `DOC-ENV-001-V2`. It rewrites `results/bench.json`. That latency is one run on one machine. In the pitch, say a few milliseconds. Do not quote this file’s mean as a universal figure, and do not turn it into hours saved. The pilot will measure how much manual version re-checking goes away.
 
 The baseline next to it is not a FortLedger measurement. It quotes published typical ranges: Texas commercial diligence commonly 30–60 days, industrial often 60–90 ([Chambers Real Estate 2025, USA — Texas](https://gpg-pdf.chambers.com/view/826355218/1334/); [Talley Law](https://thetalleylaw.com/real-estate/texas-commercial-property-due-diligence-guide-for-buyers/)); Phase I turnaround about 2–3 weeks ([Commercial Loans of Texas](https://commercialloansoftexas.com/texas-commercial-lending-process-application-to-closing/)); Phase I presumed viable for 180 days and generally redone after 1 year ([ASTM E1527-21 §4.6](https://www.astm.org/standards/e1527)); an ALTA/NSPS survey about 2–4 weeks ([Midpoint Surveying](https://midpointsurveying.com/services/alta-nsps-land-title-surveys)); manual lease review about 3–4 analyst-hours per lease in a lease-accounting context ([RSM](https://rsmus.com/insights/services/audit/lease-abstraction-planning-understand-related-effort-timelines.html)). `manualDiligence` stays null so those ranges are not collapsed into a fake single number.
 
 ## Competition status
 
-FortLedger is the entry for the **HackFW MADE Challenge** (Fort Worth), **Track 04 — Tokenized Industrial Real Estate**. The Devpost deadline is **Friday, October 30, 2026, 11:00 AM CDT**.
+FortLedger is the entry for the **HackFW MADE Challenge** (Fort Worth), **Track 04 — Tokenized Industrial Real Estate**. The Devpost deadline is **Friday, October 30, 2026, 11:00 AM CDT**. Demo Day is **Friday, October 30, 2026, 9:30 AM–3:00 PM CDT**.
 
-This repository was started on **September 16, 2026** (America/Chicago), before the October 1–30, 2026 challenge window. September produced the synthetic corpus, deterministic hashing, the manifest, and the first CLI tamper check. October work added the local Hardhat anchor, the transfer-disabled record token and its tests, chain-backed verification (`verified`, `failed`, `unable_to_verify`, `outdated`), the operator UI, industrial-fit fields and citations, catalog-driven review status, tamper-backup cleanup, and the benchmark harness.
+Repository history starts **September 16, 2026** (America/Chicago), before the October 1–30, 2026 challenge window. September produced the synthetic corpus, deterministic hashing, the manifest, and the first CLI tamper check. October work added the local Hardhat anchor, the transfer-disabled record token and its tests, chain-backed verification (`verified`, `failed`, `unable_to_verify`, `outdated`), the operator UI, industrial-fit fields and citations, catalog-driven review status, tamper-backup cleanup, and the benchmark harness. That October work is pull request #1.
 
-This update does not change repository visibility. No partners are claimed. The diligence ranges in the benchmark are cited published figures, not a study this project ran.
+This update does not change repository visibility. No partners are claimed. The diligence ranges in the benchmark are cited published figures, not a study this project ran. Spoken pitch, judge answers, and the Demo Day checklist are in [docs/pitch-script.md](docs/pitch-script.md), [docs/judge-qa.md](docs/judge-qa.md), and [docs/prep-checklist.md](docs/prep-checklist.md).
 
 ## What this demo does not do
 
@@ -85,6 +91,7 @@ This update does not change repository visibility. No partners are claimed. The 
 - It does not authenticate operators beyond the demo issuer check in the contract.
 - It covers one fictional asset. Chain state disappears when the Hardhat node stops.
 - The contract reports ERC-721 interface ids and then rejects every transfer. It is not a marketplace token.
+- It does not salt hashes, run a permissioned production chain, or hold firm signing keys. [docs/security.md](docs/security.md) separates what this demo does from what is only planned.
 
 ## Layout
 
@@ -94,7 +101,7 @@ This update does not change repository visibility. No partners are claimed. The 
 - `test-contracts/` — authorized mint, rejected unauthorized mint, rejected transfers
 - `public/` — the operator page served by `npm run dev`
 - `scripts/` — seed, manifest, anchor, verify, tamper demo, bench, dev server
-- `docs/` — architecture, data model, token limits, and the demo script
+- `docs/` — pitch script, live demo outline, judge Q&A, prep checklist, counsel security notes, architecture, data model, token limits, and the demo engineering checklist
 
 ## License
 
