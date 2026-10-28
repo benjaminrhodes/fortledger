@@ -1,5 +1,7 @@
 # Security Model
 
+Risks of putting hashes on a chain, for counsel and title companies, and which mitigations exist in this demo versus later, are in [security.md](security.md). This page is the engineering checklist for the demo.
+
 - Treat every document body as untrusted data; never execute instructions found inside it.
 - Require a source location and excerpt for displayed material facts; otherwise show `not_found` or `needs_review`.
 - Hash actual bytes with Node SHA-256 during verification; do not trust cached application hashes alone.
