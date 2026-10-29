@@ -21,7 +21,8 @@ Spoken script: [pitch-script.md](pitch-script.md). Clicks: [demo-script.md](demo
 - [ ] Read the 4-minute script out loud three times with a timer. Land the close by 4:15. Opening line and repeatable line stay word for word.
 - [ ] Run the 3-minute cut in [pitch-script.md](pitch-script.md) once, so a short slot is not a surprise.
 - [ ] Practice the questions in [judge-qa.md](judge-qa.md), including “why a blockchain,” a bad file getting anchored, who pays in Fort Worth and elsewhere, why the repo starts before October 1, and what Verified means. If they ask for hours saved, say the pilot will measure it. Do not invent a number.
-- [ ] On the presenting laptop, while you still have a network: `npm ci` and `npm test`. Confirm `git status` is clean.
+- [ ] On the presenting laptop, while you still have a network: `npm ci` and `npm test`. Confirm `git status` is clean and `./node_modules/.bin/hardhat --version` prints `2.29.1`. Node.js 20 or newer (`engines` is `>=20`; also confirmed on Node 24).
+- [ ] If that version is not 2.29.1, or `npm run dev` fails with HHE3 "No Hardhat config file found": `git checkout -- package.json package-lock.json`, then `rm -rf node_modules`, then `npm ci`. Hardhat 3 does not read `hardhat.config.cjs`. Do not upgrade to it.
 - [ ] Disconnect the network and do a full dry run: `npm run dev`, wait for `Press Ctrl+C to stop.`, open http://127.0.0.1:4173, and click the whole flow in [demo-script.md](demo-script.md). Hardhat is on port 8545.
 - [ ] Do not run `npm run bench` on that laptop. It rewrites `results/bench.json`.
 

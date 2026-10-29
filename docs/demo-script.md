@@ -12,7 +12,9 @@ npm test
 npm run dev
 ```
 
-`npm ci` and the first `npm test` need a network. The test downloads the Solidity 0.8.24 compiler. After that, the demo works offline.
+Node.js 20 or newer (`engines` is `>=20`). Also confirmed on Node 24. `npm ci` and the first `npm test` need a network. The test downloads the Solidity 0.8.24 compiler. After that, the demo works offline.
+
+`npm ci` pins Hardhat 2.29.1. Do not upgrade to Hardhat 3. It does not read `hardhat.config.cjs`, and `npm run dev` fails with HHE3, "No Hardhat config file found". `./node_modules/.bin/hardhat --version` should print `2.29.1`. If it does not: `git checkout -- package.json package-lock.json`, then `rm -rf node_modules`, then `npm ci`.
 
 Wait until the log prints `Press Ctrl+C to stop.` Hardhat is at http://127.0.0.1:8545. The operator page is at http://127.0.0.1:4173. The page verifies on load.
 
