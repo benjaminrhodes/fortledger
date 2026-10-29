@@ -1,10 +1,26 @@
 # FortLedger
 
+[![CI](https://github.com/benjaminrhodes/fortledger/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/benjaminrhodes/fortledger/actions/workflows/ci.yml)
+
 FortLedger cuts the waiting out of due diligence. Every document in the deal room is checked as current and untouched in milliseconds, not days.
 
 We turn the slowest part of a real estate deal, confirming the paperwork, into a one-click check.
 
 > Synthetic hackathon demonstration. Not legal, title, survey, environmental, investment, securities, or tax advice.
+
+## Run it in 2 minutes
+
+```bash
+git clone https://github.com/benjaminrhodes/fortledger.git
+cd fortledger
+npm run setup
+npm test
+npm run dev
+```
+
+Open http://127.0.0.1:4173. The page checks the record on load. A clean **Verify** shows **Verified**. The seven current files show Verified, and Phase I ESA v1 shows Superseded. Verified means those files are unchanged since they were recorded. It is not proof the files are true. Hardhat listens on http://127.0.0.1:8545. If port 4173 is busy, run `PORT=4174 npm run dev` and open the URL the log prints.
+
+`.nvmrc` is Node 22 (`nvm use`). Node 20 or newer works. `npm run setup` checks Node, installs from the lockfile with `npm ci`, checks that local Hardhat is 2.x, and compiles the contract. That compile downloads the Solidity 0.8.24 compiler once, so the first setup needs a network.
 
 That speed is a check of the data room you already have. In this demo, verifying the whole room takes a few milliseconds. What it removes is the manual “which version is current” re-check before closing or lender sign-off. The reports themselves are not written any faster. This repository does not claim an hours-saved number. A pilot will measure that.
 
@@ -16,11 +32,15 @@ FortLedger demonstrates that check on one fictional Fort Worth industrial proper
 
 ## Setup
 
-Node.js 20 or newer. `package.json` sets `engines.node` to `>=20`. This setup is also confirmed on Node 24. No API keys.
+Node.js 20 or newer. `package.json` sets `engines.node` to `>=20`. `.nvmrc` is 22 (`nvm use`). This setup is also confirmed on Node 24. No API keys.
 
 Use `npm ci`, not `npm install`. `npm ci` installs from the lockfile and pins Hardhat 2.29.1. It is also the clean install for a presenting laptop. Stay on Hardhat 2.x. Do not upgrade to Hardhat 3. Hardhat 3 does not read `hardhat.config.cjs`, and `npm run dev` then fails with Hardhat error HHE3, "No Hardhat config file found".
 
-The first `npm test` downloads the Solidity 0.8.24 compiler, so that command needs a network once. After `npm ci` and that first test, `npm run dev` works offline.
+`npm run setup` checks Node, runs `npm ci`, checks that local Hardhat is 2.x, and compiles. `npm test`, `npm run dev`, and `npm run demo` run the same check first (`npm run preflight` runs it alone). Node older than 20, or a Hardhat install that is not 2.x, stops with the reason and the reinstall commands.
+
+The Solidity 0.8.24 compiler downloads during `npm run setup`, or on the first `npm test` if you skip setup. That download needs a network once. After that, `npm run dev` works offline.
+
+By hand:
 
 ```bash
 npm ci
@@ -113,7 +133,9 @@ This update does not change repository visibility. No partners are claimed. The 
 - `contracts/AssetRecordToken.sol` — the record token
 - `test-contracts/` — authorized mint, rejected unauthorized mint, rejected transfers
 - `public/` — the operator page served by `npm run dev`
-- `scripts/` — seed, manifest, anchor, verify, tamper demo, bench, dev server
+- `scripts/` — seed, manifest, anchor, verify, tamper demo, bench, dev server, preflight
+- `.nvmrc` — Node 22
+- `.github/workflows/ci.yml` — `npm ci` and `npm test` on Node 20 and Node 22
 - `docs/` — pitch script, live demo outline, judge Q&A, prep checklist, counsel security notes, architecture, data model, token limits, and the demo engineering checklist
 
 ## License
