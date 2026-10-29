@@ -10,6 +10,7 @@ const required = [
   'hardhat.config.cjs',
   'contracts/AssetRecordToken.sol',
   'scripts/dev-server.mjs',
+  'scripts/preflight.mjs',
   'scripts/anchor.cjs',
   'scripts/bench.mjs',
   'scripts/verify.mjs',
@@ -19,10 +20,12 @@ const required = [
   'sample-data/asset-profile.json',
   'sample-data/catalog.json',
   'sample-data/documents.json',
-  'sample-data/manifest-v1.json'
+  'sample-data/manifest-v1.json',
+  '.nvmrc',
+  '.github/workflows/ci.yml'
 ];
 for (const path of required) await access(join(root, path));
-for (const name of ['test', 'seed', 'dev', 'bench', 'anchor']) {
+for (const name of ['setup', 'preflight', 'test', 'seed', 'dev', 'bench', 'anchor']) {
   if (!pkg.scripts[name]) throw new Error(`Missing npm script: ${name}`);
 }
 console.log('Build check passed: demo artifacts and scripts are present.');
