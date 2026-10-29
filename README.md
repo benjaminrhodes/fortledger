@@ -16,15 +16,28 @@ FortLedger demonstrates that check on one fictional Fort Worth industrial proper
 
 ## Setup
 
-Node.js 20 or newer. No API keys. The first `npm test` downloads the Solidity 0.8.24 compiler, so that command needs a network. After `npm ci` and that first test, `npm run dev` works offline. `npm ci` is the clean install for a presenting laptop.
+Node.js 20 or newer. `package.json` sets `engines.node` to `>=20`. This setup is also confirmed on Node 24. No API keys.
+
+Use `npm ci`, not `npm install`. `npm ci` installs from the lockfile and pins Hardhat 2.29.1. It is also the clean install for a presenting laptop. Stay on Hardhat 2.x. Do not upgrade to Hardhat 3. Hardhat 3 does not read `hardhat.config.cjs`, and `npm run dev` then fails with Hardhat error HHE3, "No Hardhat config file found".
+
+The first `npm test` downloads the Solidity 0.8.24 compiler, so that command needs a network once. After `npm ci` and that first test, `npm run dev` works offline.
 
 ```bash
-npm install
+npm ci
 npm test
 npm run dev
 ```
 
 Open http://127.0.0.1:4173. Hardhat listens on http://127.0.0.1:8545. If port 4173 is busy, stop the other server or run `PORT=4174 npm run dev` and open the URL the log prints.
+
+Check the installed Hardhat with `./node_modules/.bin/hardhat --version`. It should print `2.29.1`. If it does not, put the lockfile back and reinstall:
+
+```bash
+git checkout -- package.json package-lock.json
+rm -rf node_modules
+npm ci
+./node_modules/.bin/hardhat --version
+```
 
 `npm run dev` compiles the contract, starts a local Hardhat node, anchors the current manifest, and serves the operator page. The page checks the record on load. Use **Verify**, **Tamper ESA v2**, and **Restore ESA v2** to show a clean record, a failed record that names `DOC-ENV-001-V2` (`source_hash_mismatch`), and recovery. The tamper button appends a line to `sample-data/documents/phase_i_esa_v2.txt` and keeps a `.clean-demo-backup` beside it until restore. Source bytes stay on this machine. The chain stores the commitment only. The live outline is [docs/demo-script.md](docs/demo-script.md).
 
